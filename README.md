@@ -1,2 +1,13 @@
-# breaker
-An Algorithm for Switching Gate and Energy Storage of Circuit Breaker
+# 断路器的开关闸和储能开关的识别
+### opencv python photoshop
+<div align="center";width:600px;high:300px>
+
+![1000252_20230406141336_v](https://user-images.githubusercontent.com/82030635/231726782-7940a773-9035-463a-a9c5-209173bcc709.jpeg)
+</div>
+<br>对于上述图片，先用hsv确定图中红色方块的位置
+<br>对于红色方块，通过轮廓分割得到红色方法的x,y,w,h
+<br>接着采用ps量出其他方块到红色方块的距离，从而确定其他方块的x,y,w,h
+<br>最后分割其他方块，并识别方块的颜色
+<br>对于颜色识别可以将方块分解成b,g,r三个通道并取三个通道的平均值然后对于黄白判断:
+<br>如果r的均值/(r的均值+b的均值+g的均值）<=0.3说明是白色，反之是黄色。
+<br>对于红绿判断:如果b的均值最大是绿色否则是红色
